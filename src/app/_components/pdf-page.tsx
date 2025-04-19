@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 import { Page, View, Document, Text, Font, Image } from "@react-pdf/renderer";
 import { StyleSheet } from "@react-pdf/renderer";
@@ -98,7 +99,6 @@ const PDFLayout = ({ data }: any) => {
   return (<Document>
     <Page size="A4" style={styles.page}>
       {/* header */}
-      {/* @ts-ignore */}
       <Image style={{ width: "100%", height: 100, position: "absolute", top: 0, right: 0, objectFit: "container" }} src="/header.jpg" />
 
       <View style={{ width: "100%", marginVertical: 100, display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center", marginBottom: 10, paddingHorizontal: 35 }}>
