@@ -54,7 +54,6 @@ const formSchema = z
 export default function Home() {
   const pdfRef = useRef<HTMLDivElement>(null)
   const [validationError, setValidationError] = useState<string | null>(null)
-  const [data, setData] = useState<any>(null)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -107,7 +106,6 @@ export default function Home() {
     document.body.removeChild(link)
     URL.revokeObjectURL(url) // libérer la mémoire
   
-    setData(preparedData) // optionnel, si tu veux le garder pour autre usage
     setValidationError(null)
   }
 
