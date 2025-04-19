@@ -17,7 +17,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { pdf, PDFDownloadLink } from "@react-pdf/renderer"
+import { pdf } from "@react-pdf/renderer"
 import PDFLayout from "./_components/pdf-page"
 
 const formSchema = z

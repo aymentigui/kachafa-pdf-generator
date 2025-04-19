@@ -91,7 +91,7 @@ const PDFLayout = ({ data }: any) => {
     ]
   });
 
-  if(!data || !data.divisions || data.divisions.length === 0) {
+  if(!data || !data.divisions) {
     return <Document></Document>
   }
 
@@ -160,33 +160,35 @@ const PDFLayout = ({ data }: any) => {
       </View>
 
 
-      <View style={{ width: "100%", marginVertical: 30, paddingHorizontal: 5, display: "flex", flexDirection: "row", justifyContent: "center", gap: 0 }}>
-        <View style={{ width: "20%", border: "1px solid black", }}>
-          <View style={{ borderBottom: "1px solid black", height: 30, padding: 0, margin: 0, display: "flex", justifyContent: "center", alignItems: "center" }} >
-            <Text style={{ fontFamily: "LateefFont", fontSize: 12, fontWeight: "bold" }}>المجموع</Text>
-          </View>
-          <View style={{ height: 60, padding: 0, margin: 0, display: "flex", justifyContent: "center", alignItems: "center" }} >
-            <Text>1500</Text>
-          </View>
-        </View>
-        <View style={{ width: "70%", border: "1px solid black", }}>
-          <View style={{ borderBottom: "1px solid black", height: 30, padding: 0, margin: 0, display: "flex", justifyContent: "center", alignItems: "center" }} >
-            <Text style={{ fontFamily: "LateefFont", fontSize: 12, fontWeight: "bold" }}>طريقة تقسيم المبلغ</Text>
-          </View>
-          <View style={{ padding: 0, margin: 0, display: "flex", flexDirection: "row", }}>
-            {data.divisions.map((item: { name: string, value: string }, index: number) => (
-              <View style={{ width: "100%", display: "flex", flexDirection: "column" }}>
-                <View style={{ height: 30, borderBottom: "1px solid black", width: "100%", borderLeft: (index === 0 ? "none" : "1px solid black") }} >
-                  <Text style={{ fontFamily: "LateefFont", textAlign: "center", fontSize: 12, fontWeight: "bold" }}>{item.name}</Text>
-                </View>
-                <View style={{ height: 30, width: "100%", borderLeft: (index === 0 ? "none" : "1px solid black") }} >
-                  <Text style={{ fontFamily: "LateefFont", textAlign: "center", fontSize: 12, fontWeight: "bold" }}>{item.value}</Text>
-                </View>
-              </View>
-            ))}
-          </View>
-        </View>
-      </View>
+     { data.amount && data.divisions && data.divisions.length > 0 && 
+       <View style={{ width: "100%", marginVertical: 30, paddingHorizontal: 5, display: "flex", flexDirection: "row", justifyContent: "center", gap: 0 }}>
+       <View style={{ width: "20%", border: "1px solid black", }}>
+         <View style={{ borderBottom: "1px solid black", height: 30, padding: 0, margin: 0, display: "flex", justifyContent: "center", alignItems: "center" }} >
+           <Text style={{ fontFamily: "LateefFont", fontSize: 12, fontWeight: "bold" }}>المجموع</Text>
+         </View>
+         <View style={{ height: 60, padding: 0, margin: 0, display: "flex", justifyContent: "center", alignItems: "center" }} >
+           <Text>{data.amount}</Text>
+         </View>
+       </View>
+       <View style={{ width: "70%", border: "1px solid black", }}>
+         <View style={{ borderBottom: "1px solid black", height: 30, padding: 0, margin: 0, display: "flex", justifyContent: "center", alignItems: "center" }} >
+           <Text style={{ fontFamily: "LateefFont", fontSize: 12, fontWeight: "bold" }}>طريقة تقسيم المبلغ</Text>
+         </View>
+         <View style={{ padding: 0, margin: 0, display: "flex", flexDirection: "row", }}>
+           {data.divisions.map((item: { name: string, value: string }, index: number) => (
+             <View style={{ width: "100%", display: "flex", flexDirection: "column" }}>
+               <View style={{ height: 30, borderBottom: "1px solid black", width: "100%", borderLeft: (index === 0 ? "none" : "1px solid black") }} >
+                 <Text style={{ fontFamily: "LateefFont", textAlign: "center", fontSize: 12, fontWeight: "bold" }}>{item.name}</Text>
+               </View>
+               <View style={{ height: 30, width: "100%", borderLeft: (index === 0 ? "none" : "1px solid black") }} >
+                 <Text style={{ fontFamily: "LateefFont", textAlign: "center", fontSize: 12, fontWeight: "bold" }}>{item.value}</Text>
+               </View>
+             </View>
+           ))}
+         </View>
+       </View>
+     </View>
+     }
 
       <View style={{ width: "100%", marginVertical: 2, paddingHorizontal: 15, display: "flex", flexDirection: "row", gap: 3, justifyContent: "flex-end", alignItems: "center", }}>
         <Text style={{ fontFamily: "LateefFont", fontSize: 12, fontWeight: "bold" }}>افطار:</Text>
